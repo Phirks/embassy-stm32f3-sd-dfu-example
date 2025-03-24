@@ -21,7 +21,7 @@ async fn main(_spawner: Spawner) {
 
     let cs_sd = Output::new(p.PA4, Level::High, Speed::High);
     let mut spi_config = Config::default();
-    spi_config.frequency = Hertz(400_000);
+    spi_config.frequency = Hertz(200_000);
     spi_config.mode = spi::MODE_0;
     spi_config.bit_order = embassy_stm32::spi::BitOrder::MsbFirst;
     spi_config.rise_fall_speed = Speed::Medium;
