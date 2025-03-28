@@ -6,7 +6,7 @@ use defmt_rtt::*;
 use embassy_sync::mutex::Mutex;
 use embassy_sync::blocking_mutex::raw::NoopRawMutex;
 use embassy_executor::Spawner;
-use embassy_stm32::mode::Async;
+use embassy_stm32::mode::Blocking;
 use embassy_stm32::spi::{Config,Spi};
 use embassy_stm32::time::Hertz;
 use embassy_stm32::gpio::{Level, Output, Speed};
