@@ -4,33 +4,12 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-embassy-sync = { git = "https://github.com/embassy-rs/embassy" , rev = "38f26137fc67beb874aa73c9a7ab2150d9f3d372"}
-embassy-executor = { git = "https://github.com/embassy-rs/embassy" , rev = "38f26137fc67beb874aa73c9a7ab2150d9f3d372", features = ["task-arena-size-8192", "arch-cortex-m", "executor-thread"] }
-embassy-time = { git = "https://github.com/embassy-rs/embassy" , rev = "38f26137fc67beb874aa73c9a7ab2150d9f3d372", features = [ "tick-hz-32_768"] }
-embassy-stm32 = { git = "https://github.com/embassy-rs/embassy" , rev = "38f26137fc67beb874aa73c9a7ab2150d9f3d372", features = ["stm32f303vc", "time-driver-any", "exti"]  }
-embassy-boot-stm32 = { git = "https://github.com/embassy-rs/embassy" , rev = "38f26137fc67beb874aa73c9a7ab2150d9f3d372"}
-embassy-embedded-hal = { git = "https://github.com/embassy-rs/embassy" , rev = "38f26137fc67beb874aa73c9a7ab2150d9f3d372"}
 
-defmt = { version = "0.3", optional = true }
-defmt-rtt = { version = "0.4", optional = true }
 panic-reset = { version = "0.1.1" }
-embedded-hal = { version = "0.2.6" }
+
 
 cortex-m = { version = "0.7.6", features = ["inline-asm", "critical-section-single-core"] }
 cortex-m-rt = "0.7.0"
-libm = "0.2.11"
-embedded-hal-async = "1.0.0"
-embedded-sdmmc = {git = "https://github.com/rust-embedded-community/embedded-sdmmc-rs" ,rev = "36dd5dd0e25ea237e084824d1d510b1e93d6993e"}
+embedded-sdmmc = {git = "https://github.com/rust-embedded-community/embedded-sdmmc-rs" ,rev = "8a2bf647cdf7de7cf84b63a0d79e8106e03f1bae"} #switch to main
+stm32f3xx-hal = {version = "0.10.0", features = ["ld","rt","stm32f303xc"]}
 
-[features]
-defmt = [
-      "dep:defmt",
-      "dep:defmt-rtt",
-      "embassy-stm32/defmt",
-      "embassy-boot-stm32/defmt",
-      "embassy-sync/defmt",
-]
-skip-include = []
-
-[profile.release]
-debug = 2
